@@ -4,7 +4,7 @@ import "./home.scss"
 const Home = () => {
     return (
         <div className="home">
-            Home
+            <div className="box box1"></div>
         </div>
     )
 }
