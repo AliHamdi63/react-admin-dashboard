@@ -3,6 +3,12 @@ import { Add, DataTable } from "../../components/"
 import { userRows } from "../../data";
 import "./users.scss"
 
+import {
+    QueryClient,
+    QueryClientProvider,
+    useQuery,
+} from '@tanstack/react-query'
+
 const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
@@ -80,13 +86,23 @@ const Users = () => {
 
     const [open, setOpen] = useState(false);
 
+
+    const { isLoading, data } = useQuery({
+        queryKey: ['allUsers'],
+        queryFn: () =>
+            fetch(`https://simple-back.onrender.com/api/users`).then((res) =>
+                res.json(),
+            ),
+    })
+
+
     return (
         <div className='users'>
             <div className="info">
                 <h1>Users</h1>
                 <button onClick={() => setOpen(true)}>Add New User</button>
             </div>
-            <DataTable slug="users" columns={columns} rows={userRows} />
+            {isLoading ? "Loading..." : <DataTable slug="users" columns={columns} rows={data} />}
             {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
         </div>
     )

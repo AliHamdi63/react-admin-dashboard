@@ -272,7 +272,7 @@ app.post("/api/users", (req, res) => {
 // DELETE USER
 app.delete("/api/users/:id", (req, res) => {
     users = users.filter((user) => user.id !== parseInt(req.params.id));
-    res.json("User deleted!");
+    res.json(users);
 });
 
 // GET PRODUCTS
@@ -295,7 +295,7 @@ app.post("/api/products", (req, res) => {
 // DELETE PRODUCT
 app.delete("/api/products/:id", (req, res) => {
     products = products.filter((product) => product.id !== parseInt(req.params.id));
-    res.json("Product deleted!");
+    res.json(products);
 });
 
 app.listen(8800, () => {
