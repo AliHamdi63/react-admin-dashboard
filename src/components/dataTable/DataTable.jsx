@@ -1,4 +1,5 @@
 import { DataGrid, GridToolbar } from "@mui/x-data-grid"
+import Box from '@mui/material/Box';
 import "./dataTable.scss"
 import { Link } from "react-router-dom";
 
@@ -20,7 +21,7 @@ const DataTable = (props) => {
                 method: "DELETE",
             });
         },
-        onsuccess: () => {
+        onSuccess: () => {
             queryClient.invalidateQueries([`all${props.slug}`]);
         }
     });
@@ -48,7 +49,9 @@ const DataTable = (props) => {
     }
 
     return (
-        <div className="dataTable">
+        // <div className="dataTable">
+        <Box sx={{ width: '100%' }}>
+
             <DataGrid
                 className="data-grid"
                 rows={props.rows}
@@ -74,7 +77,8 @@ const DataTable = (props) => {
                 disableColumnSelector
                 disableDensitySelector
             />
-        </div>
+        </Box>
+        // </div>
     )
 }
 

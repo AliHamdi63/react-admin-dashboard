@@ -17,11 +17,11 @@ const NavBar = () => {
                 <img src='app.svg' className='icon' />
                 <img src='expand.svg' className='icon' />
                 <div className='notification'>
-                    <img src='notifications.svg' className='icon' />
+                    <img src='notifications.svg' />
                     <span>1</span>
                 </div>
                 <div className='user'>
-                    <img src='noavatar.png' className='icon' />
+                    <img src='noavatar.png' />
                     <span>Ali</span>
                 </div>
                 <img src='settings.svg' className='icon' />

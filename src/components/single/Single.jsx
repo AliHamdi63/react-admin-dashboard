@@ -15,7 +15,7 @@ const Single = (props) => {
                         <button>Update</button>
                     </div>
                     <div className='details'>
-                        {Object.entries(props.info).map((item) => {
+                        {Object.entries(props.info).map((item, index) => {
                             return (
                                 <div className='item' key={item[0]}>
                                     <span className="item-title">{item[0]}</span>
@@ -29,7 +29,7 @@ const Single = (props) => {
 
                 </div>
                 <hr />
-                {props.chart && <div className='chart'>
+                {props.chart && (<div className='chart'>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             width={500}
@@ -46,9 +46,10 @@ const Single = (props) => {
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            {props.chart.dataKeys.map(dataKey => (
+                            {props.chart.dataKeys.map((dataKey, index) => (
 
                                 <Line
+                                    key={index}
                                     type="monotone"
                                     dataKey={dataKey.name}
                                     stroke={dataKey.color}
@@ -56,7 +57,7 @@ const Single = (props) => {
                             ))}
                         </LineChart>
                     </ResponsiveContainer>
-                </div>}
+                </div>)}
             </div>
             <div className='activities'>
                 <h2>Latest Activities</h2>

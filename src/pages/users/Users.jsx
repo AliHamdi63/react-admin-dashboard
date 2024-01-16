@@ -4,8 +4,6 @@ import { userRows } from "../../data";
 import "./users.scss"
 
 import {
-    QueryClient,
-    QueryClientProvider,
     useQuery,
 } from '@tanstack/react-query'
 
