@@ -1,4 +1,4 @@
-import { Home, Users, Products, Login } from "./pages/"
+import { Home, Users, Products, Login, User, Product } from "./pages/"
 import { NavBar, Menu, Footer } from "./components/"
 
 import "./styles/global.scss"
@@ -42,8 +42,16 @@ function App() {
           element: <Users />
         },
         {
+          path: "/users/:id",
+          element: <User />
+        },
+        {
           path: "/products",
           element: <Products />
+        },
+        {
+          path: "/products/:id",
+          element: <Product />
         },
       ]
     },

@@ -8,10 +8,10 @@ const Menu = () => {
             {menu.map((item) => {
                 return (
                     <div className="item" key={item.id}>
-                        <span className="title">{item.title}</span>
+                        <span className="title">{item.title.toLocaleUpperCase()}</span>
                         {item.listItems.map((listItem) => {
                             return (
-                                <Link to={"/"} className="list-item" key={listItem.id}>
+                                <Link to={listItem.url} className="list-item" key={listItem.id}>
                                     <img src={listItem.icon} />
                                     <span className="list-item-title">{listItem.title}</span>
                                 </Link>
